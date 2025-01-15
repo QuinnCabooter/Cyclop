@@ -1,3 +1,13 @@
+"""
+Author: Quinn Cabooter
+Date: 14-01-2025
+Last updated: 15-01-2025
+
+Python script that returns a '.csv' file with te annotations and corresponding timestamps of an experiment. The user can input the participant ID, session number, protocol, ventilation enabled, company, location, room, garment type, inner garment type and wash cycles. The script will then run the experiment based on the selected protocol.
+
+"""
+
+
 import os
 import tkinter as tk
 import time
@@ -177,4 +187,4 @@ if __name__ == "__main__":
     # Save the data to a CSV file
     pd.options.display.float_format = '{:.0f}'.format
     df2 = pd.DataFrame.from_dict(df)
-    df2.to_csv(f'Experiment_data/Participant_{participant_id}_Session_{session_number}.csv')
+    df2.to_csv(f'Experiment_data/Participant_{participant_id}_Session_{session_number}_annotations.csv')
