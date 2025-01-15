@@ -1,4 +1,10 @@
 # Cyclop
+Images in markdown can be displayed from various sources. If you want to include images stored locally in your repository, you should use relative paths as shown in your current markdown. However, if you want to use images stored on your local computer but not in the repository, you would need to upload them to a web-accessible location (like an image hosting service) and then use the URL in your markdown.
+
+Here is your updated markdown content:
+
+```markdown
+# Cyclop
 
 Cyclop is a powerful tool designed to help you manage and analyze your data efficiently.
 
@@ -44,3 +50,17 @@ Cyclop is licensed under the MIT License. See the [LICENSE](LICENSE) file for mo
 ## Contact
 
 For any questions or feedback, please contact us at support@cyclop.com.
+
+## Screenshots
+
+Here are some screenshots of Cyclop in action:
+
+![Data Management](images/data_management.png)
+*Data Management Interface*
+
+![Data Analysis](images/data_analysis.png)
+*Data Analysis Tools*
+
+![Visualization](images/visualization.png)
+*Visualization Examples*
+```
