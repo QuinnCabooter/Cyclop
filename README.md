@@ -81,7 +81,7 @@ When the scripts have been updated, you will need to fetch and pull the changes 
 
 ## Using VS Code
 ### VS Code explanation
-When opening VS Code you will see the menu as in the image below. Here, you can choose to `clone repository` (not necessary if you cloned it using GitHub Desktop) or to `open...` (e.g., a folder). 
+When opening VS Code you will see the menu as in the image below. Here, you can choose to `clone repository` (not necessary if you cloned it using GitHub Desktop) or `open...` (e.g., a folder). 
 
 <p align='center'>
 <img src="Images/VSCode1.png" alt="Mac File Menu" width="70%">
