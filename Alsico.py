@@ -16,9 +16,6 @@ import pandas as pd
 #import custom protocols
 from customVariables import protocols, garments, inner_garments
 
-
-#TODO: Make sure that the timestamps from the sensorbox match the timestamps from the annotations
-
 # Create dataframe to save annotation data
 df = {"participantID": [], "sessionNumber": [], "protocol": [], "timestamp": [], "annotation": [], "ventilationEnabled": [], "company": [], "location": [], "room": [], "garmentType": [], "innerGarmentType": [], "washCycles": []}
 
@@ -30,7 +27,6 @@ def participant_exists(participant_id, session_number):
             return True
     return False
 
-#TODO: Add other input fields
 # Function to get user input
 def get_user_input():
     root = tk.Tk()
@@ -157,7 +153,7 @@ if __name__ == "__main__":
 
     # Print the start time of the experiment
     print("Experiment is running...")
-    start_time = time.time()
+    start_time = int(time.time() - 3600)
     print("GMT")
     print(start_time)
 
@@ -179,7 +175,7 @@ if __name__ == "__main__":
         df["washCycles"].append(wash_cycles)
 
         time.sleep(times[i])
-        print("next segment")
+        print(int(time.time() - 3600))
 
     print("Experiment has ended.")
 
@@ -187,3 +183,5 @@ if __name__ == "__main__":
     pd.options.display.float_format = '{:.0f}'.format
     df2 = pd.DataFrame.from_dict(df)
     df2.to_csv(f'Experiment_data/Participant_{participant_id}_Session_{session_number}_annotations.csv')
+
+
