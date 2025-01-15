@@ -20,6 +20,10 @@ protocols = {
     "Supersnel_protocol": {
         "annotations": ["baseline", "2 min stilstaan", "eerste oefening", "stilstaan 1", "tweede oefening",
                         "stilstaan 2", "derde oefening", "stilstaan 3", "einde"],
-        "times": [10, 9, 8, 7, 6, 5, 4, 3, 2]
+        "times": [1, 1, 1, 1, 1, 1, 1, 1, 1]
     }
 }
+
+garments = [ "Garment1", "Garment2", "Garment3" ]
+inner_garments = [ "InnerGarment1", "InnerGarment2", "InnerGarment3" ]
+
