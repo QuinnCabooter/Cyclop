@@ -7,7 +7,6 @@ Python script that returns a '.csv' file with te annotations and corresponding t
 
 """
 
-
 import os
 import tkinter as tk
 import time
@@ -129,7 +128,7 @@ def get_user_input():
             messagebox.showerror("Invalid input", "Please enter a valid integer for Participant ID.")
 
     submit_button = tk.Button(root, text="Submit", command=on_submit)
-    submit_button.grid(row=11, columnspan=2)
+    submit_button.grid(row=11, columnspan=2, pady=10)
 
     root.mainloop()
 
