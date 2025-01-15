@@ -3,7 +3,19 @@
 This is the repository associated with the Cyclop project. This is a project where Alsico and imec-mict-UGent collaborate to investigate the effectiveness of the new Cyclop device developed by Alsico. In this README, all necessary information is given to run the scripts and perform the experiment.
 
 ## Table of contents
-
+- [Cyclop](#cyclop)
+    - [Table of contents](#table-of-contents)
+    - [Folder Overview](#folder-overview)
+    - [Getting started](#getting-started)
+        - [Requirements](#requirements)
+    - [Using GitHub Desktop](#using-github-desktop)
+        - [Cloning or forking the repository](#cloning-or-forking-the-repository)
+        - [Updating the scripts](#updating-the-scripts)
+    - [Using VS Code](#using-vs-code)
+        - [VS Code explanation](#vs-code-explanation)
+        - [Executing a script](#executing-a-script)
+    - [Data file storage](#data-file-storage)
+    - [Contact](#contact)
 ## Folder Overview
 
 The `Cyclop` directory contains the following files and folders:
@@ -103,7 +115,7 @@ When this is finished, you should be able to run the script without any issues. 
 
 When clicking `submit`, the experiment will start.
 
-### Data file storage
+## Data file storage
 Files created by the experiment will be stored in the `Experiment_data` folder. This data will **not** be uploaded to GitHub. To share these files, send them over via e-mail or the dedicated shared Google Drive.
 
 **Make sure that when recording data, you change the names of the files to correspond with the participant number and session number. The files should be named as follows:**
