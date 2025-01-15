@@ -6,21 +6,7 @@ import pandas as pd
 
 #TODO: Make sure that the timestamps from the sensorbox match the timestamps from the annotations
 #TODO: Check if it works in spyder
-#TODO: create new folder and create new github repo with relevant files
 
-# Defining protocols
-protocols = {
-    "Standaard_protocol": {
-        "annotations": ["baseline", "2 min stilstaan", "eerste oefening", "stilstaan 1", "tweede oefening",
-                        "stilstaan 2", "derde oefening", "stilstaan 3", "einde"],
-        "times": [300, 120, 300, 60, 300, 60, 60, 60, 0]
-    },
-    "Supersnel_protocol": {
-        "annotations": ["baseline", "2 min stilstaan", "eerste oefening", "stilstaan 1", "tweede oefening",
-                        "stilstaan 2", "derde oefening", "stilstaan 3", "einde"],
-        "times": [10, 9, 8, 7, 6, 5, 4, 3, 2]
-    }
-}
 
 # Create dataframe to save annotation data
 df = {"Participant_ID": [], "Protocol": [], "timestamp": [], "annotation": []}
