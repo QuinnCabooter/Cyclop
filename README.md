@@ -118,8 +118,8 @@ When clicking `submit`, the experiment will start.
 ## Data file storage
 Files created by the experiment will be stored in the `Experiment_data` folder. This data will **not** be uploaded to GitHub. To share these files, send them over via e-mail or the dedicated shared Google Drive.
 
-**Make sure that when recording data, you change the names of the files to correspond with the participant number and session number. The files should be named as follows:**
-`Participant_*number*_Session_*number*.csv`
+**Make sure that when recording data, you change the names of the sensorbox files to correspond with the participant number and session number. The files should be named as follows:**
+`Participant_*number*_Session_*number*_sensorbox_*timestamp*.csv`
 
 ## Contact
 If you have feedback or if anything is unclear, reach out to quinn.cabooter@ugent.be
