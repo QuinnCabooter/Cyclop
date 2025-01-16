@@ -5,6 +5,11 @@ Last updated: 15-01-2025
 
 Python script that returns a '.csv' file with te annotations and corresponding timestamps of an experiment. The user can input the participant ID, session number, protocol, ventilation enabled, company, location, room, garment type, inner garment type and wash cycles. The script will then run the experiment based on the selected protocol.
 
+TODO: Also print the segment of the protocol that is currently running
+TODO: Change file name to include the start timestamp
+TODO: Participant ID can be strings
+TODO: Add more dropdown options (see software)
+TODO: check if i can add manual annotation 
 """
 
 import os
@@ -183,5 +188,3 @@ if __name__ == "__main__":
     pd.options.display.float_format = '{:.0f}'.format
     df2 = pd.DataFrame.from_dict(df)
     df2.to_csv(f'Experiment_data/Participant_{participant_id}_Session_{session_number}_annotations.csv')
-
-

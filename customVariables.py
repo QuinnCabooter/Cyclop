@@ -7,6 +7,9 @@ In this file you will define your protocols, garment types and inner garment typ
 
 """
 
+TODO: Add goggle types
+
+
 #Define your protocols here
 protocols = {
     #Standard protocol used in bodybox with the 3 exercises of 5 minutes
