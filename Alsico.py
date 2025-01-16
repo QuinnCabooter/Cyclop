@@ -5,7 +5,6 @@ Last updated: 15-01-2025
 
 Python script that returns a '.csv' file with te annotations and corresponding timestamps of an experiment. The user can input the participant ID, session number, protocol, ventilation enabled, company, location, room, garment type, inner garment type and wash cycles. The script will then run the experiment based on the selected protocol.
 
-TODO: Participant ID can be strings
 TODO: check if i can add manual annotation 
 """
 
@@ -47,7 +46,7 @@ def get_user_input():
     ##Fields with text input
     # Participant ID
     tk.Label(root, text="Participant ID:").grid(row=0, column=0)
-    participant_id_entry = tk.Entry(root, validate="key", validatecommand=vcmd)
+    participant_id_entry = tk.Entry(root)
     participant_id_entry.grid(row=0, column=1)
     # Session number
     tk.Label(root, text="Session Number:").grid(row=1, column=0)
@@ -75,35 +74,35 @@ def get_user_input():
     #Protocol
     tk.Label(root, text="Select Protocol:").grid(row= 6, column=0)
     protocol_var = tk.StringVar(root)
-    protocol_var.set("Supersnel_protocol")  # default value, supersnel protocol
+    protocol_var.set(list(protocols.keys())[0])  # default value, first protocol
     protocol_menu = ttk.Combobox(root, textvariable=protocol_var)
     protocol_menu['values'] = list(protocols.keys())
     protocol_menu.grid(row=6, column=1)
     #Garment type
     tk.Label(root, text="Select Garment:").grid(row= 7, column=0)
     garment_var = tk.StringVar(root)
-    garment_var.set("Garment1")  # default value
+    garment_var.set(garments[0])  # default value
     garment_menu = ttk.Combobox(root, textvariable=garment_var)
     garment_menu['values'] = garments
     garment_menu.grid(row=7, column=1)
     #Inner garment type
     tk.Label(root, text="Select Inner Garment:").grid(row= 8, column=0)
     inner_garment_var = tk.StringVar(root)
-    inner_garment_var.set("InnerGarment1")  # default value
+    inner_garment_var.set(inner_garments[0])  # default value
     inner_garment_menu = ttk.Combobox(root, textvariable=inner_garment_var)
     inner_garment_menu['values'] = inner_garments
     inner_garment_menu.grid(row=8, column=1)
     #Fabric type
     tk.Label(root, text="Select Fabric:").grid(row= 9, column=0)
     fabric_var = tk.StringVar(root)
-    fabric_var.set("Fabric1")  # default value
+    fabric_var.set(fabric_types[0])  # default value  # default value
     fabric_menu = ttk.Combobox(root, textvariable=fabric_var)
     fabric_menu['values'] = fabric_types
     fabric_menu.grid(row=9, column=1)
     #Goggle type
     tk.Label(root, text="Select Goggle:").grid(row= 10, column=0)
     goggle_var = tk.StringVar(root)
-    goggle_var.set("Goggle1")  # default value
+    goggle_var.set(goggle_types[0])  # default value
     goggle_menu = ttk.Combobox(root, textvariable=goggle_var)
     goggle_menu['values'] = goggle_types
     goggle_menu.grid(row=10, column=1)
@@ -177,7 +176,6 @@ if __name__ == "__main__":
     print("GMT")
     print(start_time)
 
-    #TODO: Add code to save the other input fields
     # Run the experiment
     for i in range(len(annotations)):
         current_time = time.time()
