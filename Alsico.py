@@ -5,10 +5,7 @@ Last updated: 15-01-2025
 
 Python script that returns a '.csv' file with te annotations and corresponding timestamps of an experiment. The user can input the participant ID, session number, protocol, ventilation enabled, company, location, room, garment type, inner garment type and wash cycles. The script will then run the experiment based on the selected protocol.
 
-TODO: Also print the segment of the protocol that is currently running
-TODO: Change file name to include the start timestamp
 TODO: Participant ID can be strings
-TODO: Add more dropdown options (see software)
 TODO: check if i can add manual annotation 
 """
 
@@ -19,10 +16,10 @@ from tkinter import ttk, messagebox
 import pandas as pd
 
 #import custom protocols
-from customVariables import protocols, garments, inner_garments
+from customVariables import protocols, garments, inner_garments, fabric_types, goggle_types
 
 # Create dataframe to save annotation data
-df = {"participantID": [], "sessionNumber": [], "protocol": [], "timestamp": [], "annotation": [], "ventilationEnabled": [], "company": [], "location": [], "room": [], "garmentType": [], "innerGarmentType": [], "washCycles": []}
+df = {"participantID": [], "sessionNumber": [], "protocol": [], "timestamp": [], "annotation": [], "ventilationEnabled": [], "company": [], "location": [], "room": [], "garmentType": [], "innerGarmentType": [], "fabricType":[], "goggleType": [], "washCycles": []}
 
 # Function to check if participant ID already exists
 def participant_exists(participant_id, session_number):
@@ -96,16 +93,30 @@ def get_user_input():
     inner_garment_menu = ttk.Combobox(root, textvariable=inner_garment_var)
     inner_garment_menu['values'] = inner_garments
     inner_garment_menu.grid(row=8, column=1)
+    #Fabric type
+    tk.Label(root, text="Select Fabric:").grid(row= 9, column=0)
+    fabric_var = tk.StringVar(root)
+    fabric_var.set("Fabric1")  # default value
+    fabric_menu = ttk.Combobox(root, textvariable=fabric_var)
+    fabric_menu['values'] = fabric_types
+    fabric_menu.grid(row=9, column=1)
+    #Goggle type
+    tk.Label(root, text="Select Goggle:").grid(row= 10, column=0)
+    goggle_var = tk.StringVar(root)
+    goggle_var.set("Goggle1")  # default value
+    goggle_menu = ttk.Combobox(root, textvariable=goggle_var)
+    goggle_menu['values'] = goggle_types
+    goggle_menu.grid(row=10, column=1)
 
     ##Fields with check boxes
-    tk.Label(root, text="Ventilation enabled:").grid(row= 9, column=0)
+    tk.Label(root, text="Ventilation enabled:").grid(row= 11, column=0)
     ventilation_var = tk.BooleanVar(root, value=False)
     ventilation_checkbox = tk.Checkbutton(root, variable=ventilation_var)
-    ventilation_checkbox.grid(row=9, column=1)
+    ventilation_checkbox.grid(row=11, column=1)
 
     # Add a label to the GUI
     label = tk.Label(root, text="!!! CHECK PARTICIPANT NUMBER, SESSION NUMBER AND VENTILATION !!!")
-    label.grid(row=10, column=0, pady = 20, columnspan=2)
+    label.grid(row=12, column=0, pady = 20, columnspan=2)
 
     def on_submit():
         try:
@@ -121,15 +132,17 @@ def get_user_input():
             room = room_var.get()
             garment_type = garment_var.get()
             inner_garment_type = inner_garment_var.get()
+            fabric_type = fabric_var.get()
+            goggle_type = goggle_var.get()
             wash_cycles = wash_cycles_var.get()
 
             root.quit()
-            return participant_id, selected_protocol, session_number, ventilation_enabled, company, location, room, garment_type, inner_garment_type, wash_cycles
+            return participant_id, selected_protocol, session_number, ventilation_enabled, company, location, room, garment_type, inner_garment_type, wash_cycles, fabric_type, goggle_type
         except ValueError:
             messagebox.showerror("Invalid input", "Please enter a valid integer for Participant ID.")
 
     submit_button = tk.Button(root, text="Submit", command=on_submit)
-    submit_button.grid(row=11, columnspan=2, pady=10)
+    submit_button.grid(row=13, columnspan=2, pady=10)
 
     root.mainloop()
 
@@ -143,14 +156,16 @@ def get_user_input():
     garment_type = garment_var.get()
     inner_garment_type = inner_garment_var.get()
     wash_cycles = wash_cycles_var.get()
+    fabric_type = fabric_var.get()
+    goggle_type = goggle_var.get()
 
     root.destroy()
 
-    return int(participant_id), selected_protocol, int(session_number), ventilation_enabled, company, location, room, garment_type, inner_garment_type, wash_cycles
+    return int(participant_id), selected_protocol, int(session_number), ventilation_enabled, company, location, room, garment_type, inner_garment_type, wash_cycles, fabric_type, goggle_type
 
 if __name__ == "__main__":
     # Get user input
-    participant_id, selected_protocol, session_number, ventilation_enabled, company, location, room, garment_type, inner_garment_type, wash_cycles = get_user_input()
+    participant_id, selected_protocol, session_number, ventilation_enabled, company, location, room, garment_type, inner_garment_type, wash_cycles, fabric_type, goggle_type = get_user_input()
 
     # Determine the annotations and times based on the selected protocol
     annotations = protocols[selected_protocol]["annotations"]
@@ -178,13 +193,15 @@ if __name__ == "__main__":
         df["garmentType"].append(garment_type)
         df["innerGarmentType"].append(inner_garment_type)
         df["washCycles"].append(wash_cycles)
+        df["fabricType"].append(fabric_type)
+        df["goggleType"].append(goggle_type)
 
         time.sleep(times[i])
-        print(int(time.time() - 3600))
+        print(int(time.time() - 3600), annotations[i])
 
     print("Experiment has ended.")
 
     # Save the data to a CSV file
     pd.options.display.float_format = '{:.0f}'.format
     df2 = pd.DataFrame.from_dict(df)
-    df2.to_csv(f'Experiment_data/Participant_{participant_id}_Session_{session_number}_annotations.csv')
+    df2.to_csv(f'Experiment_data/Participant_{participant_id}_Session_{session_number}_annotations_{start_time}.csv')
