@@ -18,7 +18,9 @@ import pandas as pd
 from customVariables import protocols, garments, inner_garments, fabric_types, goggle_types
 
 # Create dataframe to save annotation data
-df = {"participantID": [], "sessionNumber": [], "protocol": [], "timestamp": [], "annotation": [], "ventilationEnabled": [], "company": [], "location": [], "room": [], "garmentType": [], "innerGarmentType": [], "fabricType":[], "goggleType": [], "washCycles": []}
+df = {
+    "participantID": [], "sessionNumber": [], "protocol": [], "timestamp": [], "annotation": [], "ventilationEnabled": [], "company": [], "location": [], "room": [], "garmentType": [], "innerGarmentType": [], "fabricType":[], "goggleType": [], "washCycles": []
+    }
 
 # Function to check if participant ID already exists
 def participant_exists(participant_id, session_number):
@@ -140,7 +142,7 @@ def get_user_input():
         except ValueError:
             messagebox.showerror("Invalid input", "Please enter a valid integer for Participant ID.")
 
-    submit_button = tk.Button(root, text="Submit", command=on_submit)
+    submit_button = tk.Button(root, text="Start experiment", command=on_submit)
     submit_button.grid(row=13, columnspan=2, pady=10)
 
     root.mainloop()
@@ -201,6 +203,7 @@ if __name__ == "__main__":
     annotations = protocols[selected_protocol]["annotations"]
     times = protocols[selected_protocol]["times"]
 
+    # Print the start time of the experiment
     print("\n!!!!!!!!!!!!!!!!!!!!!!!!")
     print("Experiment is running...")
     print("!!!!!!!!!!!!!!!!!!!!!!!!\n")
@@ -211,10 +214,6 @@ if __name__ == "__main__":
     # Start manual annotation thread
     manual_thread = threading.Thread(target=capture_manual_annotations, daemon=True)
     manual_thread.start()
-
-    # Print the start time of the experiment
-
-
 
     # Run the experiment
     for i in range(len(annotations)):
@@ -242,6 +241,8 @@ if __name__ == "__main__":
     pd.options.display.float_format = '{:.0f}'.format
     df2 = pd.DataFrame.from_dict(df)
     df2.to_csv(f'Experiment_data/Participant_{participant_id}_Session_{session_number}_annotations_{start_time}.csv')
+
+    # Send a message to the user that the experiment has ended
     print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     print("THE EXPERIMENT HAS ENDED, TYPE 'exit' TO CLOSE THE PROGRAM")
     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")

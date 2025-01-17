@@ -17,7 +17,9 @@ import pandas as pd
 from customVariables import protocols, garments, inner_garments, fabric_types, goggle_types
 
 # Create dataframe to save annotation data
-df = {"participantID": [], "sessionNumber": [], "protocol": [], "timestamp": [], "annotation": [], "ventilationEnabled": [], "company": [], "location": [], "room": [], "garmentType": [], "innerGarmentType": [], "fabricType":[], "goggleType": [], "washCycles": []}
+df = {
+    "participantID": [], "sessionNumber": [], "protocol": [], "timestamp": [], "annotation": [], "ventilationEnabled": [], "company": [], "location": [], "room": [], "garmentType": [], "innerGarmentType": [], "fabricType":[], "goggleType": [], "washCycles": []
+    }
 
 # Function to check if participant ID already exists
 def participant_exists(participant_id, session_number):
@@ -139,7 +141,7 @@ def get_user_input():
         except ValueError:
             messagebox.showerror("Invalid input", "Please enter a valid integer for Participant ID.")
 
-    submit_button = tk.Button(root, text="Submit", command=on_submit)
+    submit_button = tk.Button(root, text="Start experiment", command=on_submit)
     submit_button.grid(row=13, columnspan=2, pady=10)
 
     root.mainloop()
