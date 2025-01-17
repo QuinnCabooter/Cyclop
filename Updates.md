@@ -5,9 +5,13 @@
     - Added a script that allows manual annotations during the experiment. Run this script if you want to include manual annotations.
     - After starting the experiment, you can now enter manual annotations in `Terminal`.
     - Just type your annotation and press **Enter**.
+    - This will save your annotation and the timestamp at the moment you press enter. This annotation is then included in the final savefile.
 
 - `Alsico.py`
     - Timestamps corrected from GMT to GMT-1.
 
 - `Updates.md`
     - Added Updates.md as a means to communicate updates.
+
+- `README.md`
+    - changes to include additional files
