@@ -5,7 +5,6 @@ Last updated: 15-01-2025
 
 Python script that returns a '.csv' file with te annotations and corresponding timestamps of an experiment. The user can input the participant ID, session number, protocol, ventilation enabled, company, location, room, garment type, inner garment type and wash cycles. The script will then run the experiment based on the selected protocol.
 
-TODO: check if i can add manual annotation 
 """
 
 import os
@@ -173,12 +172,11 @@ if __name__ == "__main__":
     # Print the start time of the experiment
     print("Experiment is running...")
     start_time = int(time.time() - 3600)
-    print("GMT")
-    print(start_time)
+    print(f"The experiment started at: {start_time}")
 
     # Run the experiment
     for i in range(len(annotations)):
-        current_time = time.time()
+        current_time = int(time.time()-3600)
         df["timestamp"].append(current_time)
         df["annotation"].append(annotations[i])
         df["participantID"].append(participant_id)
@@ -194,8 +192,9 @@ if __name__ == "__main__":
         df["fabricType"].append(fabric_type)
         df["goggleType"].append(goggle_type)
 
+        print(f"Automatic annotation added at {current_time}: {annotations[i]}\n")
         time.sleep(times[i])
-        print(int(time.time() - 3600), annotations[i])
+       
 
     print("Experiment has ended.")
 
