@@ -1,5 +1,15 @@
 # Update Overview
 
+## Updates 20-01-2025
+- `Alsico.py`
+    - Cleaned up the code for readability and to follow the PEP8 guidelines.
+    - Added a function that checks if the "Experiment_data" folder exists. If this does not exists, it creates this folder automatically.
+
+- `Alsico_with_manual_annotations.py`
+    - Cleaned up the code for readability and to follow the PEP8 gudielines.
+    - Added a function that checks if the "Experiment_data" folder exists. If this does not exists, it creates this folder automatically.
+    
+
 ## Updates 17-01-2025
 -  `Alsico_with_manual_annotations.py`
     - Added a script that allows manual annotations during the experiment. Run this script if you want to include manual annotations.
