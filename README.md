@@ -90,7 +90,7 @@ When opening VS Code you will see the menu as in the image below. Here, you can 
 <img src="Images/VSCode1.png" alt="Mac File Menu" width="70%">
 </p >
 
-After opening the folder that you created with GitHub Desktop, you will be able to see all files in the repository on the right side of the screen inside the `Explorer`. Here you can select files and edit them. At the bottom of the screen, a `terminal` is open (or will open when running the scripts). Here, output from the scrips will be printed. We implemented some code that you can verify that your experiment is running. The `play` button on the top right op the screen will execute the script.
+After opening the folder that you created with GitHub Desktop, you will be able to see all files in the repository on the left side of the screen inside the `Explorer`. Here you can select files and edit them. At the bottom of the screen, a `terminal` is open (or will open when running the scripts). Here, output from the scrips will be printed. We implemented some code that you can verify that your experiment is running. The `play` button on the top right op the screen will execute the script.
 
 <p align='center'>
 <img src="Images/VSCode2.png" alt="Mac File Menu" width="70%">
