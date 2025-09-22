@@ -10,6 +10,12 @@ In this file you will define your protocols, garment types and inner garment typ
 #Define your protocols here
 protocols = {
         #Protocol used when you want to test the functionality of the python script.
+
+    "Custom": {
+        "annotations": ["baseline", "2_min_stilstaan", "eerste_oefening", "stilstaan_1", "tweede_oefening",
+                        "stilstaan_2", "derde_oefening", "stilstaan_3", "einde"],
+        "times": [1, 1, 1, 1, 1, 1, 1, 1, 1]
+    },
     "Supersnel": {
         "annotations": ["baseline", "2_min_stilstaan", "eerste_oefening", "stilstaan_1", "tweede_oefening",
                         "stilstaan_2", "derde_oefening", "stilstaan_3", "einde"],

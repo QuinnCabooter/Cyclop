@@ -3,3 +3,4 @@
 *.DS_Store
 /Data_processing
 /Experiment_data
+/.vscode
