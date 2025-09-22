@@ -23,6 +23,10 @@ from tkinter import ttk, messagebox
 # Import custom protocols
 from customVariables import protocols, garments, inner_garments, fabric_types, goggle_types
 
+timestamp = int(time.time())
+#timestamp = int(time.time()-3600)
+
+
 # Define data folder path
 DATA_FOLDER_PATH = "Experiment_data"
 
@@ -232,7 +236,7 @@ if __name__ == "__main__":
     print("Experiment is running...")
     print("!!!!!!!!!!!!!!!!!!!!!!!!\n")
 
-    start_time = int(time.time() - 3600)
+    start_time = int(timestamp)
     print(f"Experiment started at: {start_time}\n")
 
     # Start manual annotation thread
@@ -241,7 +245,7 @@ if __name__ == "__main__":
 
     # Run the experiment
     for i in range(len(annotations)):
-        current_time = int(time.time()-3600)
+        current_time = int(timestamp)
         append_annotation_data(current_time, annotations[i])
         time.sleep(times[i])
         print(f"Automatic annotation added at {current_time}: {annotations[i]}\n")
