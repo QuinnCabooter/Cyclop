@@ -20,13 +20,34 @@ protocols = {#Protocol used when you want to test the functionality of the pytho
     "Custom": {
         "annotations": ["baseline", "2_min_stilstaan", "eerste_oefening", "stilstaan_1", "tweede_oefening",
                         "stilstaan_2", "derde_oefening", "stilstaan_3", "einde"],
-        "times": [1, 1, 1, 1, 1, 1, 1, 1, 1]
+        "times": [1, 1, 1, 1, 1, 1, 1, 1, 0]
     },
     "Supersnel": {
         "annotations": ["baseline", "2_min_stilstaan", "eerste_oefening", "stilstaan_1", "tweede_oefening",
                         "stilstaan_2", "derde_oefening", "stilstaan_3", "einde"],
-        "times": [1, 1, 1, 1, 1, 1, 1, 1, 1]
+        "times": [10, 10, 10, 10, 10, 10, 10, 10, 0]
     },
+
+    "Alsico Test": {
+        "annotations": ["Baseline",
+                        "Sensor_1_test",
+                        "Rust",
+                        "Sensor_2_test",
+                        "Rust",
+                        "Bewegingssensor",
+                        "Rust",
+                        "GSR",
+                        "Einde",],
+        "times": [30, #30 seconden baseline
+                  60, #60 seconden sensor 1 test
+                  30, #30 seconden rust
+                  60, #60 seconden sensor 2 test
+                  30, #30 seconden rust
+                  60, #60 seconden bewegingssensor test
+                  30, #30 seconden rust
+                  60, #60 seconden GSR test
+                  0]  #einde
+    }
 }
 
 #Define your garment types here
