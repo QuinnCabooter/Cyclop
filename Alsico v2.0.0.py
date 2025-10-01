@@ -1,7 +1,7 @@
 """
 Author: Quinn Cabooter
 Date: 14-01-2025
-Last updated: 20-01-2025
+Last updated: 01-10-2025
 
 Python script that returns a '.csv' file with te annotations and corresponding timestamps of an 
 experiment. The user can input the participant ID, session number, protocol, ventilation enabled, 
