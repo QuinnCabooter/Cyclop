@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map For FunctionButtons
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+add_fbutton	KEYWORD2
+func_state	KEYWORD2
+add_btn_listener	KEYWORD2
+add_function_listener	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+FunctionButtons	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+BUTTON_UP
+BUTTON_DOWN
+FUNCTION_ON
+FUNCTION_OFF
